@@ -67,7 +67,6 @@ public class NumberManager : MonoBehaviour
     int randomNumber = 0;
     int tempNumber = 0;
     int moveNumber = 0;
-    int blockNumber = 6;
 
     // Start is called before the first frame update
     void Start() {
@@ -81,15 +80,6 @@ public class NumberManager : MonoBehaviour
     void Update() {
     }
 
-    public void setBlock() {
-        for (int i = 0; i < numbers.Length; i++) {
-            relasionshipNumbers[blockNumber, i] = 0;
-            relasionshipNumbers[i, blockNumber] = 0;
-        }
-
-        buttons[blockNumber].GetComponent<Image>().color = new Color32(100, 0, 200, 255);
-    }
-
     public void resetNumber() {
         for (int i = 0; i < numbers.Length; i++) {
             numbers[i] = i + 1;
@@ -97,10 +87,6 @@ public class NumberManager : MonoBehaviour
         }
 
         numbers[numbers.Length - 1] = 0;
-
-        if (blockNumber != -1) {
-            setBlock();
-        }
 
         for (int i = 0; i < 500; i++) {
             // output 0 ~ numbers.length - 1 (15)
